@@ -104,6 +104,7 @@
 				0DD57B142731AFC300A1EB83 /* Frameworks */,
 				0DD57B152731AFC300A1EB83 /* Resources */,
 				00D1F2FCBE12AE67E7002F27 /* [CP] Copy Pods Resources */,
+				066618F2FD956768F3FF71C6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,6 +177,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteTracker/Pods-RouteTracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		066618F2FD956768F3FF71C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteTracker/Pods-RouteTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RouteTracker/Pods-RouteTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RouteTracker/Pods-RouteTracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6C21315C25FE40F7C8A4D57F /* [CP] Check Pods Manifest.lock */ = {
