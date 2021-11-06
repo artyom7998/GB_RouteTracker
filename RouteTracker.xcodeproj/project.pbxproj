@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D8B844C2735FF58000D3F99 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B844B2735FF58000D3F99 /* RealmService.swift */; };
+		0D8B844F27360055000D3F99 /* CoordinatePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B844E27360055000D3F99 /* CoordinatePath.swift */; };
 		0DD57B1B2731AFC300A1EB83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD57B1A2731AFC300A1EB83 /* AppDelegate.swift */; };
 		0DD57B1D2731AFC300A1EB83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD57B1C2731AFC300A1EB83 /* SceneDelegate.swift */; };
 		0DD57B1F2731AFC300A1EB83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD57B1E2731AFC300A1EB83 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D8B844B2735FF58000D3F99 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		0D8B844E27360055000D3F99 /* CoordinatePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatePath.swift; sourceTree = "<group>"; };
 		0DD57B172731AFC300A1EB83 /* RouteTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouteTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DD57B1A2731AFC300A1EB83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DD57B1C2731AFC300A1EB83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +46,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D8B844A2735FF3C000D3F99 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0D8B844B2735FF58000D3F99 /* RealmService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0D8B844D2736002F000D3F99 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0D8B844E27360055000D3F99 /* CoordinatePath.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		0DD57B0E2731AFC200A1EB83 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +83,8 @@
 		0DD57B192731AFC300A1EB83 /* RouteTracker */ = {
 			isa = PBXGroup;
 			children = (
+				0D8B844D2736002F000D3F99 /* Models */,
+				0D8B844A2735FF3C000D3F99 /* Services */,
 				0DD57B1A2731AFC300A1EB83 /* AppDelegate.swift */,
 				0DD57B1C2731AFC300A1EB83 /* SceneDelegate.swift */,
 				0DD57B1E2731AFC300A1EB83 /* ViewController.swift */,
@@ -88,7 +110,6 @@
 				7353B165DBA552838F7BAAA0 /* Pods-RouteTracker.debug.xcconfig */,
 				8C08B5BA6ACAD5DCB553E91D /* Pods-RouteTracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -228,6 +249,8 @@
 				0DD57B1F2731AFC300A1EB83 /* ViewController.swift in Sources */,
 				0DD57B1B2731AFC300A1EB83 /* AppDelegate.swift in Sources */,
 				0DD57B1D2731AFC300A1EB83 /* SceneDelegate.swift in Sources */,
+				0D8B844C2735FF58000D3F99 /* RealmService.swift in Sources */,
+				0D8B844F27360055000D3F99 /* CoordinatePath.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +403,7 @@
 				DEVELOPMENT_TEAM = 8N984JK6KN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RouteTracker/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Для отслеживания местоположения";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -409,6 +433,7 @@
 				DEVELOPMENT_TEAM = 8N984JK6KN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RouteTracker/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Для отслеживания местоположения";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

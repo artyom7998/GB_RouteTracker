@@ -31,9 +31,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3ah-bt-2os">
-                        <barButtonItem key="leftBarButtonItem" title="Center" id="jtF-BC-z5x">
+                        <nil key="title"/>
+                        <barButtonItem key="rightBarButtonItem" title="Меню" style="plain" id="bGi-Dl-q12">
                             <connections>
-                                <action selector="goToCenter:" destination="BYZ-38-t0r" id="90k-yn-LEC"/>
+                                <action selector="showActions:" destination="BYZ-38-t0r" id="ZiO-os-LkA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
