@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RouteTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapController" id="BYZ-38-t0r" userLabel="Map" customClass="MapController" customModule="RouteTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PRK-6k-cwt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -32,6 +32,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="3ah-bt-2os">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Выйти" id="4EP-0c-Cnb">
+                            <connections>
+                                <action selector="logout:" destination="BYZ-38-t0r" id="1aL-Rp-E85"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Меню" style="plain" id="bGi-Dl-q12">
                             <connections>
                                 <action selector="showActions:" destination="BYZ-38-t0r" id="ZiO-os-LkA"/>
@@ -49,6 +54,7 @@
         <!--Navigation Controller-->
         <scene sceneID="pvv-34-2Wf">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L0X-hs-Jcg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dDS-yH-ozf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="t8S-yO-xqS">
@@ -60,7 +66,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="uEu-cd-3bA"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L0X-hs-Jcg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="97.767857142857139"/>
         </scene>

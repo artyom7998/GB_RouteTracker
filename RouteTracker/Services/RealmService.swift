@@ -12,6 +12,7 @@ class RealmService {
     
     static let deleteIfMigration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
     
+    
     func save <T: Object>(items: [T],
                           configuration: Realm.Configuration = deleteIfMigration,
                           update: Realm.UpdatePolicy = .modified) throws {
@@ -44,4 +45,12 @@ class RealmService {
         
     }
     
+    func getRealm(configuration: Realm.Configuration = deleteIfMigration) -> Realm? {
+        do {
+            let realm = try Realm(configuration: configuration)
+            return realm
+        } catch {
+            return nil
+        }
+    }
 }
