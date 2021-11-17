@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MapController.swift
 //  RouteTracker
 //
 //  Created by Артем Зарудный on 02.11.2021.
@@ -9,7 +9,7 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
-class ViewController: UIViewController {
+class MapController: UIViewController {
    
     @IBOutlet weak var mapView: GMSMapView!
     private let realmService = RealmService()
