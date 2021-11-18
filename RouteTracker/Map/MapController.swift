@@ -7,7 +7,6 @@
 
 import UIKit
 import GoogleMaps
-import CoreLocation
 
 class MapController: UIViewController {
     
@@ -16,28 +15,17 @@ class MapController: UIViewController {
     @IBOutlet weak var mapView: GMSMapView!
     private let realmService = RealmService()
     private var coordinate = CLLocationCoordinate2D()
-    private var locationManager: CLLocationManager?
     private var executeRouteTracking: Bool = false
     private var route: GMSPolyline?
     private var routePath: GMSMutablePath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureCoreLocation()
-        locationManager?.requestLocation()
     }
     
     private func configureMap() {
         let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 17)
         mapView.camera = camera
-    }
-    
-    private func configureCoreLocation() {
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.allowsBackgroundLocationUpdates = true
-        locationManager?.pausesLocationUpdatesAutomatically = false
-        locationManager?.requestAlwaysAuthorization()
     }
     
     private func centerLocation() {
@@ -49,13 +37,16 @@ class MapController: UIViewController {
         route = GMSPolyline()
         routePath = GMSMutablePath()
         route?.map = mapView
-        locationManager?.startUpdatingLocation()
-        locationManager?.startMonitoringSignificantLocationChanges()
+    
+        LocationManger.shared.startUpdating()
+        LocationManger.shared.location
+            .subscribe(onNext: {
+                self.updateRoutePath($0?.coordinate)
+            })
     }
     
     private func stopRouteTracking() {
-        locationManager?.stopUpdatingLocation()
-        locationManager?.stopMonitoringSignificantLocationChanges()
+        LocationManger.shared.stopUpdating()
         guard let routePath = routePath else { return }
         
         let count = routePath.count()-1
@@ -87,7 +78,8 @@ class MapController: UIViewController {
         }
     }
     
-    private func updateRoutePath(_ currentCoordinate: CLLocationCoordinate2D) {
+    private func updateRoutePath(_ currentCoordinate: CLLocationCoordinate2D?) {
+        guard let currentCoordinate = currentCoordinate else { return }
         coordinate = currentCoordinate
         configureMap()
         centerLocation()
@@ -163,19 +155,5 @@ class MapController: UIViewController {
         alertController.addAction(showTrackAction)
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
-    }
-}
-
-extension MapController: CLLocationManagerDelegate {
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    
-        locations.forEach { location in
-            updateRoutePath(location.coordinate)
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
     }
 }

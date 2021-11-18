@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class RegistrationController: UIViewController {
     
@@ -13,6 +15,7 @@ class RegistrationController: UIViewController {
     
     @IBOutlet weak var loginView: UITextField!
     @IBOutlet weak var passwordView: UITextField!
+    @IBOutlet weak var registrationButton: UIButton!
     
     @IBAction func registration(_ sender: Any) {
         guard let login = loginView.text,
@@ -43,5 +46,21 @@ class RegistrationController: UIViewController {
         let ok = UIAlertAction(title: "Oк", style: .cancel)
         alert.addAction(ok)
         present(alert, animated: true)
+    }
+    
+    private func configurungLoginBinding() {
+        Observable
+            .combineLatest(loginView.rx.text, passwordView.rx.text)
+            .map { login, password in
+                return !(login ?? "").isEmpty && (password ?? "").count >= 6
+            }
+            .bind { [weak registrationButton] inputFilled in
+                registrationButton?.isEnabled = inputFilled
+            }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configurungLoginBinding()
     }
 }

@@ -8,4 +8,6 @@ target 'RouteTracker' do
   # Pods for RouteTracker
 	pod 'GoogleMaps'
 	pod 'RealmSwift'
+	pod 'RxSwift'
+	pod 'RxCocoa'
 end

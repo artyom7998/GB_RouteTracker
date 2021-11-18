@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class AuthController: UIViewController {
     
@@ -17,6 +19,7 @@ class AuthController: UIViewController {
     
     @IBOutlet weak var loginView: UITextField!
     @IBOutlet weak var passwordView: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     @IBAction func login(_ sedner: UIButton) {
         guard let login = loginView.text,
@@ -73,5 +76,21 @@ class AuthController: UIViewController {
         }
         
         return true
+    }
+    
+    private func configurungLoginBinding() {
+        Observable
+            .combineLatest(loginView.rx.text, passwordView.rx.text)
+            .map { login, password in
+                return !(login ?? "").isEmpty && (password ?? "").count >= 6
+            }
+            .bind { [weak loginButton] inputFilled in
+                loginButton?.isEnabled = inputFilled
+            }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configurungLoginBinding()
     }
 }
