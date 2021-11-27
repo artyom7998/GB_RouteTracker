@@ -39,6 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneWillResignActive(_ scene: UIScene) {
         self.window?.rootViewController?.view.isHidden = true
+        NotificationService.shared.sendNotificationRequest()
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
