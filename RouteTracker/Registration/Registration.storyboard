@@ -52,6 +52,7 @@
                     <connections>
                         <outlet property="loginView" destination="kRq-Wt-ZVT" id="5LU-Hd-vYw"/>
                         <outlet property="passwordView" destination="oao-lS-qA5" id="6Lm-e7-WnU"/>
+                        <outlet property="registrationButton" destination="1FI-nj-YG2" id="nid-Xg-5gp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
